@@ -1,16 +1,16 @@
-const express=require('express')
-const app=express()
-const port=8000
-app.use(express.urlencoded({extended: ture}))
+const express = require('express')
+const app = express()
+const port = 8000
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(express.static('public'))
 
 app.post('/api/form-post', (request, response) => {
-    let name = request.body.name ||''
-    let email = request.body.email ||''
-    let msg = request.body.msg ||''
+    let name = request.body.name || ''
+    let email = request.body.email || ''
+    let msg = request.body.msg || ''
 
-    let test =`
+    let text = `
      <table border="1">
         <caption>ข้อมูลที่ส่งขึ้นไป</caption>
         <tr><td>ชื่อ:</td><td>${name}</td></tr>
@@ -18,7 +18,7 @@ app.post('/api/form-post', (request, response) => {
         <tr><td>ข้อความ:</td><td>${msg}</td></tr>
      </table>
     `
-    
+
     response.send(text)
 })
-app.listen(port, () => console.log('Server listing on port'+port))
+app.listen(port, () => console.log('Server listing on port' + port))
