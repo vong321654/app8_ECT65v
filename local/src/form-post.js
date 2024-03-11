@@ -24,7 +24,13 @@ export default function FormPost(){
         <div style={{margin:'30px'}}>
             <form ref={form} onSub={onSubmitForm}>
                 <div>ติดต่อเรา</div>
+                <input type="text" name="name" size="43" placeholder="ชื่อ" style={inputStyle}/><br/>
+                <input type="email" name="email" size="43" placeholder="อีเมล" style={inputStyle}/><br/>
+                <textarea name="message" col="40" rows="4" placeholder="ข้อความ"></textarea><br/>
+                <button>ตกลง</button>
             </form>
+            <br/>
+            <div dangerouslySetInnerHTML={{_html:postedData}}></div>
         </div>
     )
 }
